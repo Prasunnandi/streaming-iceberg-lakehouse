@@ -1,0 +1,60 @@
+{
+  "format-version": 2,
+  "table-uuid": "9c12fe48-38bb-4c28-912f-9175a9bf517c",
+  "location": "s3://lakehouse-warehouse/nyc_taxi/trips",
+  "last-sequence-number": 142,
+  "last-updated-ms": 1740000000000,
+  "current-snapshot-id": 849204918204928190,
+  "schemas": [
+    {
+      "schema-id": 0,
+      "fields": [
+        {"id": 1, "name": "vendor_id", "required": true, "type": "int"},
+        {"id": 2, "name": "pickup_datetime", "required": true, "type": "timestamptz"},
+        {"id": 3, "name": "dropoff_datetime", "required": true, "type": "timestamptz"},
+        {"id": 4, "name": "passenger_count", "required": false, "type": "int"},
+        {"id": 5, "name": "trip_distance", "required": true, "type": "double"},
+        {"id": 6, "name": "fare_amount", "required": true, "type": "double"},
+        {"id": 7, "name": "tip_amount", "required": false, "type": "double"},
+        {"id": 8, "name": "total_amount", "required": true, "type": "double"}
+      ]
+    }
+  ],
+  "partition-specs": [
+    {
+      "spec-id": 0,
+      "fields": [
+        {"source-id": 2, "field-id": 1000, "name": "pickup_date", "transform": "day"}
+      ]
+    }
+  ],
+  "snapshots": [
+    {
+      "snapshot-id": 718291029381920192,
+      "timestamp-ms": 1739910000000,
+      "summary": {
+        "operation": "append",
+        "added-data-files": "42",
+        "added-records": "148200",
+        "total-data-files": "42",
+        "total-records": "148200"
+      },
+      "manifest-list": "s3://lakehouse-warehouse/nyc_taxi/trips/metadata/snap-718291029381920192-1-manifest.avro"
+    },
+    {
+      "snapshot-id": 849204918204928190,
+      "parent-snapshot-id": 718291029381920192,
+      "timestamp-ms": 1740000000000,
+      "summary": {
+        "operation": "replace",
+        "added-data-files": "6",
+        "deleted-data-files": "42",
+        "removed-records": "148200",
+        "added-records": "148200",
+        "total-data-files": "6",
+        "total-records": "148200"
+      },
+      "manifest-list": "s3://lakehouse-warehouse/nyc_taxi/trips/metadata/snap-849204918204928190-2-manifest.avro"
+    }
+  ]
+}
